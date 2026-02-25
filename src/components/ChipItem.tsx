@@ -41,9 +41,6 @@ export function ChipItem({ chip }: { chip: ChipData }) {
           <Badge key={b} type={b} />
         ))}
       </div>
-      <span className="absolute right-1.5 top-1/2 -translate-y-1/2 text-[8px] text-map-txt-faint opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-        ↗
-      </span>
     </a>
   );
 }

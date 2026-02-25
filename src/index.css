@@ -58,23 +58,6 @@
     --map-txt-faint: 210 18% 24%;
     --map-white: 206 100% 95%;
     --map-llm: 258 90% 76%;
-
-    /* Badge colors */
-    --badge-ai-scaled-bg: 142 69% 45%;
-    --badge-ai-emerging-bg: 24 95% 61%;
-    --badge-ai-enhanced-bg: 48 96% 53%;
-    --badge-incumbent-bg: 215 14% 34%;
-    --badge-multi-bg: 15 52% 48%;
-    --badge-llm-bg: 258 90% 76%;
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 

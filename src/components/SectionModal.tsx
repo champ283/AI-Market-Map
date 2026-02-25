@@ -8,6 +8,12 @@ interface SectionModalProps {
   onClose: () => void;
 }
 
+function gridClass(cols?: number): string {
+  if (cols === 3) return 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3';
+  if (cols === 2) return 'grid-cols-1 sm:grid-cols-2';
+  return 'grid-cols-1';
+}
+
 export function SectionModal({ section, onClose }: SectionModalProps) {
   const aiChips = section.chips.filter((c) => c.type !== 'incumbent');
   const incChips = section.chips.filter((c) => c.type === 'incumbent');
@@ -17,10 +23,8 @@ export function SectionModal({ section, onClose }: SectionModalProps) {
       className="fixed inset-0 z-[999] flex items-center justify-center p-4 md:p-8"
       onClick={onClose}
     >
-      {/* Backdrop */}
       <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
 
-      {/* Modal */}
       <div
         className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-xl bg-map-bg2 border border-map-line shadow-2xl animate-modal-in"
         style={{
@@ -79,22 +83,14 @@ export function SectionModal({ section, onClose }: SectionModalProps) {
 
         {/* AI Tools */}
         <div className="px-6 pb-2">
-          <div
-            className={`grid gap-1.5 ${
-              section.gridCols === 3
-                ? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3'
-                : section.gridCols === 2
-                ? 'grid-cols-1 sm:grid-cols-2'
-                : 'grid-cols-1'
-            }`}
-          >
+          <div className={`grid gap-1.5 ${gridClass(section.gridCols)}`}>
             {aiChips.map((chip) => (
               <ChipItem key={chip.name + chip.href} chip={chip} />
             ))}
           </div>
         </div>
 
-        {/* Divider */}
+        {/* Incumbents */}
         {incChips.length > 0 && (
           <>
             <div className="flex items-center gap-2 px-6 py-3">
@@ -106,13 +102,7 @@ export function SectionModal({ section, onClose }: SectionModalProps) {
             </div>
 
             <div className="px-6 pb-6">
-              <div
-                className={`grid gap-1.5 ${
-                  section.gridCols && section.gridCols >= 2
-                    ? 'grid-cols-1 sm:grid-cols-2'
-                    : 'grid-cols-1'
-                }`}
-              >
+              <div className={`grid gap-1.5 ${gridClass(section.gridCols && section.gridCols >= 2 ? 2 : 1)}`}>
                 {incChips.map((chip) => (
                   <ChipItem key={chip.name + chip.href} chip={chip} />
                 ))}

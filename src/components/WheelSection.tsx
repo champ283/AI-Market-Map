@@ -86,7 +86,6 @@ export function WheelSection({
           </div>
         </div>
 
-        {/* Summary counts */}
         <div className="flex items-center gap-3 mt-2.5 font-mono-jb text-[11px] text-map-txt-dim">
           <span className="flex items-center gap-1">
             <span className="w-1.5 h-1.5 rounded-full bg-map-white" />
@@ -96,11 +95,6 @@ export function WheelSection({
             <span className="w-1.5 h-1.5 rounded-full bg-map-txt-faint" />
             {incCount} incumbents
           </span>
-        </div>
-
-        {/* Click hint */}
-        <div className="mt-2 font-mono-jb text-[10px] uppercase tracking-[0.1em] text-map-txt-faint text-center opacity-0 group-hover:opacity-100 transition-opacity">
-          Click to expand ↗
         </div>
       </div>
     </div>

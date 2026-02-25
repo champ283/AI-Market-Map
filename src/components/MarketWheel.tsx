@@ -2,6 +2,7 @@ import { useState, useCallback, useMemo } from 'react';
 import { sections, SectionData, BadgeType } from '@/data/marketMapData';
 import { WheelSection } from './WheelSection';
 import { SectionModal } from './SectionModal';
+import { SectionCard } from './SectionCard';
 import { Badge } from './Badge';
 import { SearchFilter } from './SearchFilter';
 
@@ -13,25 +14,21 @@ export function MarketWheel() {
 
   const hasFilters = searchQuery.trim() !== '' || activeFilters.length > 0;
 
-  // Filter sections based on search/filters - returns sections with matching chips only
   const filteredSections = useMemo(() => {
     if (!hasFilters) return sections;
-
     const q = searchQuery.toLowerCase().trim();
-
     return sections
-      .map((section) => {
-        const filteredChips = section.chips.filter((chip) => {
+      .map((section) => ({
+        ...section,
+        chips: section.chips.filter((chip) => {
           const matchesSearch = !q || chip.name.toLowerCase().includes(q);
           const matchesFilter =
-            activeFilters.length === 0 ||
-            chip.badges.some((b) => activeFilters.includes(b));
+            activeFilters.length === 0 || chip.badges.some((b) => activeFilters.includes(b));
           return matchesSearch && matchesFilter;
-        });
-        return { ...section, chips: filteredChips };
-      })
+        }),
+      }))
       .filter((s) => s.chips.length > 0);
-  }, [searchQuery, activeFilters, hasFilters]);
+  }, [searchQuery, activeFilters]);
 
   const handleClick = useCallback((section: SectionData) => {
     setModalSection(section);
@@ -44,7 +41,7 @@ export function MarketWheel() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background p-5 md:p-6">
+    <div className="h-screen overflow-hidden flex flex-col bg-background px-5 pt-4 pb-3 md:px-6 md:pt-5">
       {/* Background grid */}
       <div
         className="fixed inset-0 pointer-events-none"
@@ -59,7 +56,7 @@ export function MarketWheel() {
       />
 
       {/* Header */}
-      <header className="relative flex flex-col md:flex-row justify-between items-start gap-6 mb-5 pb-4 border-b border-map-line2">
+      <header className="relative shrink-0 flex flex-col md:flex-row justify-between items-start gap-4 pb-3 border-b border-map-line mb-3">
         <div>
           <h1 className="font-syne text-2xl md:text-[26px] font-extrabold text-map-white tracking-tight leading-tight">
             Finance & IB Software
@@ -75,14 +72,14 @@ export function MarketWheel() {
         <div className="flex gap-5 flex-wrap shrink-0">
           <div className="flex flex-col gap-1">
             <span className="font-mono-jb text-[10px] uppercase tracking-[0.1em] text-map-txt-faint mb-0.5">
-              AI Tools (Priority)
+              AI Tools
             </span>
             <div className="flex flex-col gap-1 font-mono-jb text-[11px] text-map-txt-dim">
-              <span className="flex items-center gap-1.5"><Badge type="ai-scaled" /> Proven, adopted AI-native tool</span>
+              <span className="flex items-center gap-1.5"><Badge type="ai-scaled" /> Proven, adopted AI-native</span>
               <span className="flex items-center gap-1.5"><Badge type="ai-emerging" /> New disruptor, high momentum</span>
               <span className="flex items-center gap-1.5"><Badge type="ai-enhanced" /> Traditional tool with AI layer</span>
               <span className="flex items-center gap-1.5"><Badge type="llm" /> Frontier LLM platform</span>
-              <span className="flex items-center gap-1.5"><Badge type="multi" /> Appears in multiple categories</span>
+              <span className="flex items-center gap-1.5"><Badge type="multi" /> Multi-category</span>
             </div>
           </div>
           <div className="flex flex-col gap-1">
@@ -108,36 +105,25 @@ export function MarketWheel() {
       </header>
 
       {/* Search & Filter */}
-      <SearchFilter
-        searchQuery={searchQuery}
-        onSearchChange={setSearchQuery}
-        activeFilters={activeFilters}
-        onToggleFilter={toggleFilter}
-      />
+      <div className="shrink-0 mb-3">
+        <SearchFilter
+          searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
+          activeFilters={activeFilters}
+          onToggleFilter={toggleFilter}
+          onClearFilters={() => setActiveFilters([])}
+        />
+      </div>
 
-      {/* Filtered results view */}
+      {/* Content */}
       {hasFilters ? (
-        <div className="relative mt-4">
+        <div className="flex-1 min-h-0 overflow-y-auto">
           <div className="font-mono-jb text-[11px] text-map-txt-dim mb-3 tracking-wider">
             {filteredSections.reduce((sum, s) => sum + s.chips.length, 0)} results across {filteredSections.length} categories
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pb-2">
             {filteredSections.map((section) => (
-              <div
-                key={section.id}
-                className="relative rounded-[9px] bg-map-bg2 border border-map-line cursor-pointer transition-all hover:border-map-line2"
-                onClick={() => handleClick(section)}
-              >
-                <div
-                  className="absolute top-0 left-0 right-0 h-[2.5px] rounded-t-[9px]"
-                  style={{ background: `hsl(var(${section.colorVar}))` }}
-                />
-                <div
-                  className="absolute inset-0 rounded-[9px] pointer-events-none"
-                  style={{
-                    background: `radial-gradient(ellipse 80% 40% at 50% 0%, hsl(var(${section.colorVar}) / 0.08), transparent 70%)`,
-                  }}
-                />
+              <SectionCard key={section.id} section={section} onClick={handleClick}>
                 <div className="p-3.5">
                   <div className="flex items-center gap-2.5 mb-2.5">
                     <div
@@ -175,15 +161,14 @@ export function MarketWheel() {
                     )}
                   </div>
                 </div>
-              </div>
+              </SectionCard>
             ))}
           </div>
         </div>
       ) : (
-        <>
-          {/* Wheel - Desktop */}
-          <div className="relative hidden md:block" style={{ height: 'min(760px, calc(100vh - 220px))' }}>
-            {/* Hub */}
+        <div className="flex-1 min-h-0 relative">
+          {/* Wheel — Desktop */}
+          <div className="absolute inset-0 hidden md:block">
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(280px,40vw)] text-center p-3 rounded-xl bg-white/[0.02] border border-map-line shadow-[0_18px_60px_rgba(0,0,0,0.45)] pointer-events-none z-10">
               <div className="font-syne font-extrabold text-map-white text-base tracking-tight leading-tight">
                 Interactive Market Map
@@ -192,8 +177,6 @@ export function MarketWheel() {
                 Hover to preview · Click to expand
               </div>
             </div>
-
-            {/* Sections */}
             {sections.map((section) => (
               <WheelSection
                 key={section.id}
@@ -206,27 +189,13 @@ export function MarketWheel() {
             ))}
           </div>
 
-          {/* Grid - Mobile */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:hidden">
+          {/* Grid — Mobile */}
+          <div className="absolute inset-0 overflow-y-auto md:hidden grid grid-cols-1 sm:grid-cols-2 gap-3 pb-2 content-start">
             {sections.map((section) => {
               const aiCount = section.chips.filter((c) => c.type !== 'incumbent').length;
               const incCount = section.chips.filter((c) => c.type === 'incumbent').length;
               return (
-                <div
-                  key={section.id}
-                  className="relative rounded-[9px] bg-map-bg2 border border-map-line cursor-pointer transition-all hover:border-map-line2 active:scale-[0.98]"
-                  onClick={() => handleClick(section)}
-                >
-                  <div
-                    className="absolute top-0 left-0 right-0 h-[2.5px] rounded-t-[9px]"
-                    style={{ background: `hsl(var(${section.colorVar}))` }}
-                  />
-                  <div
-                    className="absolute inset-0 rounded-[9px] pointer-events-none"
-                    style={{
-                      background: `radial-gradient(ellipse 80% 40% at 50% 0%, hsl(var(${section.colorVar}) / 0.08), transparent 70%)`,
-                    }}
-                  />
+                <SectionCard key={section.id} section={section} onClick={handleClick}>
                   <div className="p-3.5">
                     <div className="flex items-center gap-2.5">
                       <div
@@ -239,7 +208,7 @@ export function MarketWheel() {
                         {section.icon}
                       </div>
                       <div className="min-w-0">
-                          <div
+                        <div
                           className="font-syne text-[13px] font-bold uppercase tracking-[0.07em] leading-tight"
                           style={{ color: `hsl(var(${section.colorVar}) / 0.85)` }}
                         >
@@ -256,15 +225,15 @@ export function MarketWheel() {
                       <span className="ml-auto text-map-txt-faint">Tap to expand ↗</span>
                     </div>
                   </div>
-                </div>
+                </SectionCard>
               );
             })}
           </div>
-        </>
+        </div>
       )}
 
       {/* Footer */}
-      <footer className="relative mt-4 pt-3 border-t border-map-line flex flex-col sm:flex-row justify-between font-mono-jb text-[11px] text-map-txt-faint tracking-wider gap-1">
+      <footer className="relative shrink-0 mt-2 pt-3 border-t border-map-line flex flex-col sm:flex-row justify-between font-mono-jb text-[11px] text-map-txt-faint tracking-wider gap-1">
         <span>Finance & Investment Banking · AI Market Map · 2026</span>
         <span>AI tools listed first · 🏛 Incumbents listed last · ↗ = Multi-category</span>
       </footer>
