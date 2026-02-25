@@ -184,12 +184,12 @@ export function MarketWheel() {
           <div className="flex-1 min-h-0 relative">
             {/* Wheel — Desktop */}
             <div className="absolute inset-0 hidden md:block">
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(200px,28vw)] text-center p-3 rounded-xl bg-white border border-gray-200 shadow-sm pointer-events-none z-10">
-                <div className="font-syne font-extrabold text-[rgb(13,8,48)] text-sm tracking-tight leading-tight">
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(160px,22vw)] text-center p-2.5 rounded-xl bg-white border border-gray-200 shadow-sm pointer-events-none z-10">
+                <div className="font-syne font-extrabold text-[rgb(13,8,48)] text-xs tracking-tight leading-tight">
                   Interactive Market Map
                 </div>
-                <div className="font-mono-jb text-gray-400 text-[10px] tracking-[0.08em] uppercase mt-1">
-                  Hover to preview · Click to expand
+                <div className="font-mono-jb text-gray-400 text-[9px] tracking-[0.07em] uppercase mt-1">
+                  Hover · Click to expand
                 </div>
               </div>
               {sections.map((section) => (
