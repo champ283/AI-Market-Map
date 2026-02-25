@@ -8,14 +8,11 @@ import { SearchFilter } from './SearchFilter';
 
 function AerisLogo() {
   return (
-    <div className="flex items-stretch shrink-0 rounded overflow-hidden border border-[rgb(13,8,48)]">
-      <div className="bg-[rgb(13,8,48)] px-3 py-2 flex items-center">
-        <span className="font-syne font-extrabold text-white text-sm tracking-tight">Aeris</span>
-      </div>
-      <div className="bg-white px-3 py-2 flex items-center">
-        <span className="font-syne font-semibold text-[rgb(13,8,48)] text-sm tracking-tight">Partners</span>
-      </div>
-    </div>
+    <img
+      src="/aeris-logo.png"
+      alt="Aeris Partners"
+      className="h-10 w-auto shrink-0 object-contain"
+    />
   );
 }
 
