@@ -19,12 +19,12 @@ export const badgeActiveStyles: Record<BadgeType, string> = {
 };
 
 export const badgeInactiveStyles: Record<BadgeType, string> = {
-  'ai-scaled': 'bg-map-bg3 border-map-line text-map-txt-dim hover:border-emerald-500/30 hover:text-emerald-400',
-  'ai-emerging': 'bg-map-bg3 border-map-line text-map-txt-dim hover:border-orange-400/30 hover:text-orange-400',
-  'ai-enhanced': 'bg-map-bg3 border-map-line text-map-txt-dim hover:border-yellow-500/30 hover:text-yellow-500',
-  'llm': 'bg-map-bg3 border-map-line text-map-txt-dim hover:border-violet-400/30 hover:text-violet-300',
-  'incumbent': 'bg-map-bg3 border-map-line text-map-txt-dim hover:border-slate-500/30 hover:text-slate-400',
-  'multi': 'bg-map-bg3 border-map-line text-map-txt-dim hover:border-amber-600/30 hover:text-amber-500',
+  'ai-scaled':  'bg-white border-gray-200 text-gray-500 hover:border-emerald-400 hover:text-emerald-600',
+  'ai-emerging':'bg-white border-gray-200 text-gray-500 hover:border-orange-400  hover:text-orange-500',
+  'ai-enhanced':'bg-white border-gray-200 text-gray-500 hover:border-yellow-400  hover:text-yellow-600',
+  'llm':        'bg-white border-gray-200 text-gray-500 hover:border-violet-400  hover:text-violet-600',
+  'incumbent':  'bg-white border-gray-200 text-gray-500 hover:border-slate-400   hover:text-slate-600',
+  'multi':      'bg-white border-gray-200 text-gray-500 hover:border-amber-400   hover:text-amber-600',
 };
 
 const badgeLabels: Record<BadgeType, string> = {

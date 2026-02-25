@@ -6,58 +6,60 @@
 
 @layer base {
   :root {
-    --background: 216 28% 4%;
-    --foreground: 210 40% 80%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 21%;
 
-    --card: 216 22% 7%;
-    --card-foreground: 210 40% 80%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 21%;
 
-    --popover: 216 22% 7%;
-    --popover-foreground: 210 40% 80%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 21%;
 
-    --primary: 217 91% 60%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 248 72% 11%;
+    --primary-foreground: 0 0% 97%;
 
-    --secondary: 216 18% 10%;
-    --secondary-foreground: 210 40% 80%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 21%;
 
-    --muted: 216 18% 10%;
-    --muted-foreground: 215 20% 40%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 216 18% 14%;
-    --accent-foreground: 210 40% 80%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 21%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 97%;
 
-    --border: 215 20% 16%;
-    --input: 215 20% 16%;
-    --ring: 217 91% 60%;
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 248 72% 11%;
 
     --radius: 0.5rem;
 
-    /* Market map section colors */
-    --c-ppt-in: 217 91% 60%;
-    --c-ppt-out: 258 90% 66%;
-    --c-excel: 160 84% 39%;
-    --c-market: 38 92% 50%;
-    --c-agentic: 0 84% 60%;
-    --c-diligence: 330 81% 60%;
-    --c-modeling: 189 94% 43%;
-    --c-workflow: 215 14% 46%;
+    /* Section colors — palette in descending order of use */
+    --c-ppt-in:    248 72% 11%;   /* rgb(13,   8,  48) */
+    --c-ppt-out:   209 95% 24%;   /* rgb( 3,  64, 120) */
+    --c-market:    193 60% 45%;   /* rgb(46, 154, 184) */
+    --c-excel:     189 58% 56%;   /* rgb(79, 189, 208) */
+    --c-agentic:   207 49% 78%;   /* rgb(173,203, 227) */
+    --c-diligence:   0  0% 85%;   /* rgb(217,217, 217) */
+    --c-modeling:    0  0% 65%;   /* rgb(166,166, 166) */
+    --c-workflow:    0  0% 43%;   /* rgb(109,109, 109) */
 
-    /* Semantic tokens */
-    --map-bg: 216 28% 4%;
-    --map-bg2: 216 22% 7%;
-    --map-bg3: 216 18% 10%;
-    --map-bg4: 216 18% 14%;
-    --map-line: 215 20% 16%;
-    --map-line2: 215 22% 22%;
-    --map-txt: 210 40% 80%;
-    --map-txt-dim: 210 18% 40%;
-    --map-txt-faint: 210 18% 24%;
-    --map-white: 206 100% 95%;
-    --map-llm: 258 90% 76%;
+    /* Card / dark-element tokens */
+    --map-bg:      0   0% 100%;   /* page background: white    */
+    --map-bg2:     248 72% 11%;   /* card background: dark navy */
+    --map-bg3:     248 50% 15%;   /* card inner: slightly lighter */
+    --map-bg4:     248 40% 20%;   /* card hover                */
+    --map-line:    248 35% 22%;   /* card border               */
+    --map-line2:   248 30% 32%;   /* card border hover         */
+
+    /* Text */
+    --map-txt:       0   0% 21%;  /* body text on white        */
+    --map-txt-dim:   0   0% 45%;  /* secondary text            */
+    --map-txt-faint: 0   0% 62%;  /* tertiary text             */
+    --map-white:     0   0% 97%;  /* text on dark cards        */
+    --map-llm:     258  60% 75%;  /* LLM accent                */
   }
 }
 

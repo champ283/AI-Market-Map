@@ -70,7 +70,7 @@ export function SectionModal({ section, onClose }: SectionModalProps) {
             <div>
               <h2
                 className="font-syne text-base font-bold uppercase tracking-[0.07em] leading-tight"
-                style={{ color: `hsl(var(${section.colorVar}) / 0.92)` }}
+                style={{ color: `hsl(var(${section.colorVar}))` }}
               >
                 {section.title}
               </h2>

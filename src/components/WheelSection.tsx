@@ -76,7 +76,7 @@ export function WheelSection({
           <div className="min-w-0">
             <div
               className="font-syne text-[13px] font-bold uppercase tracking-[0.07em] leading-tight"
-              style={{ color: `hsl(var(${section.colorVar}) / 0.85)` }}
+              style={{ color: `hsl(var(${section.colorVar}))` }}
             >
               {section.title}
             </div>

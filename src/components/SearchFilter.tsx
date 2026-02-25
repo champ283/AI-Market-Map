@@ -36,7 +36,7 @@ export function SearchFilter({
           value={searchQuery}
           onChange={(e) => onSearchChange(e.target.value)}
           placeholder="Search tools…"
-          className="w-full pl-8 pr-8 py-2 rounded-lg bg-map-bg3 border border-map-line text-map-white text-sm font-mono-jb placeholder:text-map-txt-faint focus:outline-none focus:border-map-line2 focus:ring-1 focus:ring-primary/30 transition-colors"
+          className="w-full pl-8 pr-8 py-2 rounded-lg bg-white border border-gray-200 text-gray-800 text-sm font-mono-jb placeholder:text-gray-400 focus:outline-none focus:border-gray-400 focus:ring-1 focus:ring-gray-200 transition-colors"
         />
         {searchQuery && (
           <button
