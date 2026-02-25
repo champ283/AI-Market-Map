@@ -29,7 +29,7 @@ export function WheelSection({
       }`}
       style={{
         transform: `translate(-50%, -50%) rotate(${section.angle}deg) translate(${
-          isActive ? 'min(22vw, 290px)' : 'min(27vw, 340px)'
+          isActive ? 'min(18vw, 26vh, 220px)' : 'min(22vw, 30vh, 270px)'
         }) rotate(${-section.angle}deg) scale(${isActive ? 1.05 : 0.92})`,
         borderColor: isActive ? `hsl(var(${section.colorVar}))` : undefined,
         boxShadow: isActive

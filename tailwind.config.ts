@@ -14,9 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        syne: ['Syne', 'sans-serif'],
-        'mono-jb': ['JetBrains Mono', 'monospace'],
-        sans: ['DM Sans', 'sans-serif'],
+        syne: ['Arial', 'sans-serif'],
+        'mono-jb': ['Arial', 'sans-serif'],
+        sans: ['Arial', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

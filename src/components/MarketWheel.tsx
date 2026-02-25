@@ -187,7 +187,7 @@ export function MarketWheel() {
           <div className="flex-1 min-h-0 relative">
             {/* Wheel — Desktop */}
             <div className="absolute inset-0 hidden md:block">
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(240px,36vw)] text-center p-3 rounded-xl bg-white border border-gray-200 shadow-sm pointer-events-none z-10">
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(200px,28vw)] text-center p-3 rounded-xl bg-white border border-gray-200 shadow-sm pointer-events-none z-10">
                 <div className="font-syne font-extrabold text-[rgb(13,8,48)] text-sm tracking-tight leading-tight">
                   Interactive Market Map
                 </div>
