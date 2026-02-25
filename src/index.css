@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 216 28% 4%;
+    --foreground: 210 40% 80%;
+
+    --card: 216 22% 7%;
+    --card-foreground: 210 40% 80%;
+
+    --popover: 216 22% 7%;
+    --popover-foreground: 210 40% 80%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 216 18% 10%;
+    --secondary-foreground: 210 40% 80%;
+
+    --muted: 216 18% 10%;
+    --muted-foreground: 215 20% 40%;
+
+    --accent: 216 18% 14%;
+    --accent-foreground: 210 40% 80%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 20% 16%;
+    --input: 215 20% 16%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.5rem;
+
+    /* Market map section colors */
+    --c-ppt-in: 217 91% 60%;
+    --c-ppt-out: 258 90% 66%;
+    --c-excel: 160 84% 39%;
+    --c-market: 38 92% 50%;
+    --c-agentic: 0 84% 60%;
+    --c-diligence: 330 81% 60%;
+    --c-modeling: 189 94% 43%;
+    --c-workflow: 215 14% 46%;
+
+    /* Semantic tokens */
+    --map-bg: 216 28% 4%;
+    --map-bg2: 216 22% 7%;
+    --map-bg3: 216 18% 10%;
+    --map-bg4: 216 18% 14%;
+    --map-line: 215 20% 16%;
+    --map-line2: 215 22% 22%;
+    --map-txt: 210 40% 80%;
+    --map-txt-dim: 210 18% 40%;
+    --map-txt-faint: 210 18% 24%;
+    --map-white: 206 100% 95%;
+    --map-llm: 258 90% 76%;
+
+    /* Badge colors */
+    --badge-ai-scaled-bg: 142 69% 45%;
+    --badge-ai-emerging-bg: 24 95% 61%;
+    --badge-ai-enhanced-bg: 48 96% 53%;
+    --badge-incumbent-bg: 215 14% 34%;
+    --badge-multi-bg: 15 52% 48%;
+    --badge-llm-bg: 258 90% 76%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'DM Sans', sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-syne {
+    font-family: 'Syne', sans-serif;
+  }
+  .font-mono-jb {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
