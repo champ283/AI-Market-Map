@@ -20,7 +20,7 @@ export function WheelSection({
 
   return (
     <div
-      className={`absolute left-1/2 top-1/2 w-[168px] rounded-[9px] bg-map-bg2 border border-map-line cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.34,1.4,0.64,1)] origin-center ${
+      className={`absolute left-1/2 top-1/2 w-[168px] overflow-hidden rounded-[9px] bg-map-bg2 border border-map-line cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.34,1.4,0.64,1)] origin-center ${
         isActive
           ? 'z-[150] saturate-[1.02] brightness-[1.03]'
           : isAnyHovered
@@ -42,46 +42,31 @@ export function WheelSection({
     >
       {/* Top accent line */}
       <div
-        className="absolute top-0 left-0 right-0 h-[2.5px] rounded-t-[9px]"
+        className="absolute top-0 left-0 right-0 h-[2.5px]"
         style={{ background: `hsl(var(${section.colorVar}))` }}
       />
 
       {/* Glow */}
       <div
-        className="absolute inset-0 rounded-[9px] pointer-events-none"
+        className="absolute inset-0 pointer-events-none"
         style={{
           background: `radial-gradient(ellipse 80% 40% at 50% 0%, hsl(var(${section.colorVar}) / 0.08), transparent 70%)`,
         }}
       />
 
-      {/* Region tag */}
-      {section.regionTag && (
-        <span className="absolute -top-2 left-3 font-mono-jb text-[8px] uppercase tracking-[0.1em] text-map-txt-faint bg-map-bg2 px-1 pointer-events-none">
-          {section.regionTag}
-        </span>
-      )}
-
       {/* Content */}
-      <div className="p-2.5">
-        <div className="flex items-center gap-2 mb-2">
+      <div className="p-2.5 pt-3.5">
+        <div className="flex items-center gap-1.5 mb-2">
+          <span className="text-sm shrink-0 leading-none">{section.icon}</span>
           <div
-            className="w-6 h-6 rounded flex items-center justify-center text-xs shrink-0"
-            style={{
-              background: `hsl(var(${section.colorVar}) / 0.14)`,
-              border: `1px solid hsl(var(${section.colorVar}) / 0.22)`,
-            }}
-          >
-            {section.icon}
-          </div>
-          <div
-            className="font-syne text-[10px] font-bold uppercase tracking-[0.06em] leading-tight"
+            className="font-syne text-[9.5px] font-bold uppercase tracking-[0.05em] leading-tight line-clamp-2 overflow-hidden min-w-0"
             style={{ color: `hsl(var(${section.colorVar}))` }}
           >
             {section.title}
           </div>
         </div>
 
-        <div className="flex items-center gap-2 font-mono-jb text-[9px] text-map-txt-dim">
+        <div className="flex items-center gap-2 font-mono-jb text-[8.5px] text-map-txt-dim">
           <span className="flex items-center gap-1">
             <span className="w-1 h-1 rounded-full bg-map-white shrink-0" />
             {aiCount} AI

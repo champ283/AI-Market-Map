@@ -1,7 +1,7 @@
 import { useState, useCallback, useMemo } from 'react';
 import { sections, SectionData, BadgeType } from '@/data/marketMapData';
 import { WheelSection } from './WheelSection';
-import { SectionModal } from './SectionModal';
+import { SectionPanel } from './SectionPanel';
 import { SectionCard } from './SectionCard';
 import { Badge } from './Badge';
 import { SearchFilter } from './SearchFilter';
@@ -258,9 +258,9 @@ export function MarketWheel() {
         <span>AI tools listed first · 🏛 Incumbents listed last · ↗ = Multi-category</span>
       </footer>
 
-      {/* Modal */}
+      {/* Side Panel */}
       {modalSection && (
-        <SectionModal section={modalSection} onClose={() => setModalSection(null)} />
+        <SectionPanel section={modalSection} onClose={() => setModalSection(null)} />
       )}
     </div>
   );

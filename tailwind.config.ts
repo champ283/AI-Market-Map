@@ -94,11 +94,16 @@ export default {
           "0%": { opacity: "0", transform: "scale(0.9) translateY(20px)" },
           "100%": { opacity: "1", transform: "scale(1) translateY(0)" },
         },
+        "slide-in-right": {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "modal-in": "modal-in 0.3s cubic-bezier(0.34,1.4,0.64,1)",
+        "slide-in-right": "slide-in-right 0.3s cubic-bezier(0.34,1.4,0.64,1)",
       },
     },
   },
