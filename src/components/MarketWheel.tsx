@@ -111,13 +111,12 @@ export function MarketWheel() {
             February, 2026 Market Map
           </p>
         </div>
-        {/* Logo in white pill — stays readable on navy background */}
-        <div className="shrink-0 bg-white rounded px-2.5 py-1.5">
-          <img
-            src="/aeris-logo.png"
-            alt="Aeris Partners"
-            className="h-7 w-auto object-contain"
-          />
+        {/* Monogram */}
+        <div
+          className="shrink-0 font-syne font-bold text-[15px] tracking-widest"
+          style={{ color: 'rgb(173,203,227)' }}
+        >
+          CHH
         </div>
       </header>
 
