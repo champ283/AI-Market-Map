@@ -1,14 +1,14 @@
 import { SectionData } from '@/data/marketMapData';
 
 // ── Layout constants (tune to adjust the oval) ────────────────────────────────
-const CARD_W    = '160px';  // card width
-const CARD_H    = '138px';  // card height (slightly wider than tall)
-const RX_REST   = 320;      // horizontal orbit radius (px) — wider axis
-const RY_REST   = 186;      // vertical orbit radius (px)  — tighter axis → oval
-const RX_ACTIVE = 248;      // hover pull-in, horizontal
-const RY_ACTIVE = 150;      // hover pull-in, vertical
+const CARD_W    = '178px';  // card width
+const CARD_H    = '148px';  // card height (slightly wider than tall)
+const RX_REST   = 295;      // horizontal orbit radius (px) — wider axis
+const RY_REST   = 162;      // vertical orbit radius (px)  — tighter axis → oval
+const RX_ACTIVE = 268;      // hover pull-in, horizontal
+const RY_ACTIVE = 146;      // hover pull-in, vertical
 const S_REST    = 0.93;     // resting scale (breathing room)
-const S_ACTIVE  = 1.09;     // hover pop-out scale
+const S_ACTIVE  = 1.08;     // hover pop-out scale
 // ─────────────────────────────────────────────────────────────────────────────
 
 // Cards whose brand color is light enough to require dark text
