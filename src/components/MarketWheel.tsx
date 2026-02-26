@@ -173,81 +173,78 @@ export function MarketWheel() {
           </div>
         </div>
       ) : (
-        <div className="flex-1 min-h-0 flex gap-6">
+        <div className="flex-1 min-h-0 relative">
 
-          {/* Legend — desktop sidebar */}
-          <div className="hidden md:block w-44 shrink-0 overflow-y-auto pt-1">
+          {/* Legend — desktop overlay (left side) */}
+          <div className="absolute left-0 top-0 bottom-0 hidden md:flex flex-col w-44 shrink-0 overflow-y-auto pt-1 z-20">
             <Legend />
           </div>
 
-          {/* Main content */}
-          <div className="flex-1 min-h-0 relative">
-            {/* Wheel — Desktop */}
-            <div className="absolute inset-0 hidden md:block">
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(160px,22vw)] text-center p-2.5 rounded-xl bg-white border border-gray-200 shadow-sm pointer-events-none z-10">
-                <div className="font-syne font-extrabold text-[rgb(13,8,48)] text-xs tracking-tight leading-tight">
-                  Interactive Market Map
-                </div>
-                <div className="font-mono-jb text-gray-400 text-[9px] tracking-[0.07em] uppercase mt-1">
-                  Hover · Click to expand
-                </div>
+          {/* Wheel — Desktop (full width so center is true screen center) */}
+          <div className="absolute inset-0 hidden md:block">
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(180px,14vw)] text-center p-2.5 rounded-xl bg-white border border-gray-200 shadow-sm pointer-events-none z-10">
+              <div className="font-syne font-extrabold text-[rgb(13,8,48)] text-xs tracking-tight leading-tight">
+                Interactive Market Map
               </div>
-              {sections.map((section) => (
-                <WheelSection
-                  key={section.id}
-                  section={section}
-                  isActive={hoveredId === section.id}
-                  isAnyHovered={hoveredId !== null}
-                  onHover={setHoveredId}
-                  onClick={handleClick}
-                />
-              ))}
+              <div className="font-mono-jb text-gray-400 text-[9px] tracking-[0.07em] uppercase mt-1">
+                Hover · Click to expand
+              </div>
             </div>
+            {sections.map((section) => (
+              <WheelSection
+                key={section.id}
+                section={section}
+                isActive={hoveredId === section.id}
+                isAnyHovered={hoveredId !== null}
+                onHover={setHoveredId}
+                onClick={handleClick}
+              />
+            ))}
+          </div>
 
-            {/* Grid — Mobile */}
-            <div className="absolute inset-0 overflow-y-auto md:hidden grid grid-cols-1 sm:grid-cols-2 gap-3 pb-2 content-start">
-              {/* Legend on mobile */}
-              <div className="col-span-full mb-2">
-                <Legend />
-              </div>
-              {sections.map((section) => {
-                const aiCount = section.chips.filter((c) => c.type !== 'incumbent').length;
-                const incCount = section.chips.filter((c) => c.type === 'incumbent').length;
-                return (
-                  <SectionCard key={section.id} section={section} onClick={handleClick}>
-                    <div className="p-3.5">
-                      <div className="flex items-center gap-2.5">
-                        <div
-                          className="w-8 h-8 rounded-md flex items-center justify-center text-[15px] shrink-0"
-                          style={{
-                            background: `hsl(var(${section.colorVar}) / 0.14)`,
-                            border: `1px solid hsl(var(${section.colorVar}) / 0.22)`,
-                          }}
-                        >
-                          {section.icon}
-                        </div>
-                        <div className="min-w-0">
-                          <div
-                            className="font-syne text-[13px] font-bold uppercase tracking-[0.07em] leading-tight"
-                            style={{ color: `hsl(var(${section.colorVar}))` }}
-                          >
-                            {section.title}
-                          </div>
-                          <div className="font-mono-jb text-[10px] text-map-txt-faint mt-0.5">
-                            {section.subtitle}
-                          </div>
-                        </div>
+          {/* Grid — Mobile */}
+          <div className="absolute inset-0 overflow-y-auto md:hidden grid grid-cols-1 sm:grid-cols-2 gap-3 pb-2 content-start">
+            {/* Legend on mobile */}
+            <div className="col-span-full mb-2">
+              <Legend />
+            </div>
+            {sections.map((section) => {
+              const aiCount = section.chips.filter((c) => c.type !== 'incumbent').length;
+              const incCount = section.chips.filter((c) => c.type === 'incumbent').length;
+              return (
+                <SectionCard key={section.id} section={section} onClick={handleClick}>
+                  <div className="p-3.5">
+                    <div className="flex items-center gap-2.5">
+                      <div
+                        className="w-8 h-8 rounded-md flex items-center justify-center text-[15px] shrink-0"
+                        style={{
+                          background: `hsl(var(${section.colorVar}) / 0.14)`,
+                          border: `1px solid hsl(var(${section.colorVar}) / 0.22)`,
+                        }}
+                      >
+                        {section.icon}
                       </div>
-                      <div className="flex items-center gap-3 mt-2 font-mono-jb text-[10px] text-map-txt-dim">
-                        <span>{aiCount} AI tools</span>
-                        <span>{incCount} incumbents</span>
-                        <span className="ml-auto text-map-txt-faint">Tap to expand ↗</span>
+                      <div className="min-w-0">
+                        <div
+                          className="font-syne text-[13px] font-bold uppercase tracking-[0.07em] leading-tight"
+                          style={{ color: `hsl(var(${section.colorVar}))` }}
+                        >
+                          {section.title}
+                        </div>
+                        <div className="font-mono-jb text-[10px] text-map-txt-faint mt-0.5">
+                          {section.subtitle}
+                        </div>
                       </div>
                     </div>
-                  </SectionCard>
-                );
-              })}
-            </div>
+                    <div className="flex items-center gap-3 mt-2 font-mono-jb text-[10px] text-map-txt-dim">
+                      <span>{aiCount} AI tools</span>
+                      <span>{incCount} incumbents</span>
+                      <span className="ml-auto text-map-txt-faint">Tap to expand ↗</span>
+                    </div>
+                  </div>
+                </SectionCard>
+              );
+            })}
           </div>
         </div>
       )}

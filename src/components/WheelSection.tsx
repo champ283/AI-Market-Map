@@ -20,7 +20,7 @@ export function WheelSection({
 
   return (
     <div
-      className={`absolute left-1/2 top-1/2 w-[168px] overflow-hidden rounded-[9px] bg-map-bg2 border border-map-line cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.34,1.4,0.64,1)] origin-center ${
+      className={`absolute left-1/2 top-1/2 w-[186px] overflow-hidden rounded-[9px] bg-map-bg2 border border-map-line cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.34,1.4,0.64,1)] origin-center ${
         isActive
           ? 'z-[150] saturate-[1.02] brightness-[1.03]'
           : isAnyHovered
@@ -29,7 +29,7 @@ export function WheelSection({
       }`}
       style={{
         transform: `translate(-50%, -50%) rotate(${section.angle}deg) translate(${
-          isActive ? 'min(15vw, 22vh, 205px)' : 'min(19vw, 28vh, 250px)'
+          isActive ? 'min(16vw, 22vh, 210px)' : 'min(22vw, 29vh, 265px)'
         }) rotate(${-section.angle}deg) scale(${isActive ? 1.05 : 0.94})`,
         borderColor: isActive ? `hsl(var(${section.colorVar}))` : undefined,
         boxShadow: isActive
