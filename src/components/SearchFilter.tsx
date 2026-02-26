@@ -38,11 +38,11 @@ export function SearchFilter({
           placeholder="Search tools…"
           className="w-full pl-8 pr-8 py-2 rounded-lg bg-white text-sm font-mono-jb placeholder:text-[rgb(166,166,166)] focus:outline-none transition-colors"
           style={{
-            border: '1px solid rgb(217,217,217)',
+            border: '1px solid rgb(180,180,180)',
             color: 'rgb(54,54,54)',
           }}
           onFocus={(e) => { e.currentTarget.style.borderColor = 'rgb(3,64,120)'; }}
-          onBlur={(e) => { e.currentTarget.style.borderColor = 'rgb(217,217,217)'; }}
+          onBlur={(e) => { e.currentTarget.style.borderColor = 'rgb(180,180,180)'; }}
         />
         {searchQuery && (
           <button
