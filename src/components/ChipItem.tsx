@@ -38,7 +38,7 @@ export function ChipItem({ chip }: { chip: ChipData }) {
       </span>
       <div className="flex gap-0.5 shrink-0">
         {chip.badges.map((b) => (
-          <Badge key={b} type={b} />
+          <Badge key={b} type={b} onDark />
         ))}
       </div>
     </a>

@@ -34,15 +34,15 @@
 
     --radius: 0.5rem;
 
-    /* Section colors — palette in descending order of use */
-    --c-ppt-in:    248 72% 11%;   /* rgb(13,   8,  48) */
-    --c-ppt-out:   209 95% 24%;   /* rgb( 3,  64, 120) */
-    --c-market:    193 60% 45%;   /* rgb(46, 154, 184) */
-    --c-excel:     189 58% 56%;   /* rgb(79, 189, 208) */
-    --c-agentic:   207 49% 78%;   /* rgb(173,203, 227) */
-    --c-diligence:   0  0% 85%;   /* rgb(217,217, 217) */
-    --c-modeling:    0  0% 65%;   /* rgb(166,166, 166) */
-    --c-workflow:    0  0% 43%;   /* rgb(109,109, 109) */
+    /* Section colors — exact Aeris Partners brand palette */
+    --c-ppt-in:    248 72% 11%;   /* rgb( 13,  8,  48) — Primary (deepest navy)  */
+    --c-ppt-out:   210 95% 24%;   /* rgb(  3, 64, 120) — Secondary (dark blue)   */
+    --c-market:    201 60% 45%;   /* rgb( 46,145, 184) — Tertiary (medium blue)  */
+    --c-excel:     191 68% 68%;   /* rgb(120,207, 228) — Color 4 (light blue)    */
+    --c-agentic:   208 42% 78%;   /* rgb(173,203, 227) — Color 5 (pale blue)     */
+    --c-diligence:   0  0% 85%;   /* rgb(217,217, 217) — Color 6 (light gray)    */
+    --c-modeling:    0  0% 65%;   /* rgb(166,166, 166) — Color 7 (medium gray)   */
+    --c-workflow:    0  0% 43%;   /* rgb(109,109, 109) — Color 8 (dark gray)     */
 
     /* Card / dark-element tokens */
     --map-bg:      0   0% 100%;   /* page background: white    */
